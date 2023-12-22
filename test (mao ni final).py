@@ -8,30 +8,25 @@ class ButtonApp(QWidget):
         super().__init__()
 
         self.setWindowTitle("Bryan + Matt's Game")
-        self.setGeometry(200, 200, 800, 800)  # Set your desired window size
-
-        # Set up the background image for the central widget
-        self.background_image_path = "splash.jpg"  # Change to your image path
+        self.setGeometry(200, 200, 800, 800)
+            
+        self.background_image_path = "splash.jpg"
         self.set_background_image()
 
-        # Create title label
         title_label = QLabel("Wala pay final title", self)
         self.set_title_style(title_label)
 
-        # Create buttons
         button1 = QPushButton('Start', self)
         button1.clicked.connect(self.start)
         button2 = QPushButton('How to Play', self)
         button2.clicked.connect(self.instructions)
 
-        # Set button styles
         self.set_button_style(button1)
         self.set_button_style(button2)
 
-        # Create layout
         layout = QVBoxLayout(self)
         layout.addWidget(title_label, alignment=Qt.AlignTop | Qt.AlignHCenter)
-        layout.addStretch()  # Add flexible space to push buttons to the bottom
+        layout.addStretch() 
         layout.addWidget(button1, alignment=Qt.AlignCenter)
         layout.addWidget(button2, alignment=Qt.AlignCenter)
 
@@ -60,4 +55,3 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = ButtonApp()
     sys.exit(app.exec_())
-
